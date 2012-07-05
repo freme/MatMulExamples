@@ -90,7 +90,7 @@ int main(int argc, char** argv)
     p = sec_getenv("PROBLEMLIST", 1);
     parselist(p);
 
-    output = (int) int_getenv("OUTPUT", 0);
+    output = (int) int_getenv("OUTPUT", 1);
 
     /* initialize the random generator */
     srand((unsigned int)111);
