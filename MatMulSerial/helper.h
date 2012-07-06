@@ -58,6 +58,7 @@ extern void parselist(const char *pcstring );
 double get_list_element(int index);
 double get_list_maxelement();
 double get_list_minelement();
+void free_list();
 extern void safe_exit(int code);
 
 void sigint_handler (int signum);

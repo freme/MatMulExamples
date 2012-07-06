@@ -24,3 +24,7 @@ ADD_DEFINITIONS("-g -DDEBUG=0 -Wall")
 
 #target_link_libraries(${EXENAME} mpi) 
 
+IF(UNIX)
+    TARGET_LINK_LIBRARIES(${EXENAME} m)
+ENDIF(UNIX)
+

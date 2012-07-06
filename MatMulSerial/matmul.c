@@ -157,6 +157,7 @@ int main(int argc, char** argv)
         
         //free(myfds);
     }
+    free_list();
     safe_exit(0);
     exit(0); /*to eliminate compiler-warning */
 }

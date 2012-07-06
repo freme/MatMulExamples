@@ -64,7 +64,7 @@ long int int_getenv(const char *env, int exitOnNull)
 
 double get_list_element(int index) {
   int ii=0;
-  list_t *current;
+  list_t *current = NULL;
 
   if (listsize < index) {
     printf("list index out of bounds\n");
@@ -119,6 +119,24 @@ double get_list_minelement() {
   }
 
   return minimum;
+}
+
+
+
+void free_list() {
+  int ii = 0;
+  list_t *current = NULL;
+  list_t *tmp = NULL;
+
+  if (listsize < 1) {
+    printf("no items in list\n");
+  }
+  current = list;
+  for(ii=1; ii<listsize; ii++) {
+      tmp = current->pnext;
+      current->pnext = current->pnext->pnext;
+      free(tmp);
+  }
 }
 
 
@@ -337,7 +355,7 @@ void parselist(const char *pcstring) {
 
   list=pfirst;
   listsize=icount;
-
+  
   /*debugging level 1: mark begin and end of function */
   if (DEBUG > 0) {
     fflush(stdout); printf("parser created %d entries in list\n", icount );
