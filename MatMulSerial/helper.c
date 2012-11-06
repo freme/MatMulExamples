@@ -2,6 +2,11 @@
 #include <errno.h>
 #include <ctype.h>
 
+list_t *list; /**< parameterlist */
+int listsize; /**< parameterlistsize */
+double d_bi_start_sec; /**< start time */
+
+
 char* sec_getenv(const char *env, int exitOnNull)
 {
     char *res = 0;
@@ -132,7 +137,7 @@ void free_list() {
     printf("no items in list\n");
   }
   current = list;
-  for(ii=1; ii<listsize; ii++) {
+  for(ii=2; ii<listsize; ii++) {
       tmp = current->pnext;
       current->pnext = current->pnext->pnext;
       free(tmp);
@@ -354,7 +359,7 @@ void parselist(const char *pcstring) {
   }
 
   list=pfirst;
-  listsize=icount;
+  listsize=icount+1; //first value is listed twice for sanity checks
   
   /*debugging level 1: mark begin and end of function */
   if (DEBUG > 0) {

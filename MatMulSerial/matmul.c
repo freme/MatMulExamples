@@ -1,8 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "helper.h"
 #include "matmul.h"
+
+#ifdef VTRACE
+#include "vt_user.h"
+#endif
 
 #define NUM_FUNC 6
 
@@ -79,6 +82,11 @@ int main(int argc, char** argv)
     double dstart[NUM_FUNC], dend[NUM_FUNC], dtime[NUM_FUNC];
     double dres = 0.0, dresults[NUM_FUNC+1];
     fds *myfds;
+#ifdef VTRACE
+    unsigned int id, gid;
+    gid = VT_COUNT_GROUP_DEF("MatMul");
+    id = VT_COUNT_DEF("MatrixSize", "#", VT_COUNT_TYPE_UNSIGNED, gid);
+#endif //VTRACE
 
     d_bi_start_sec = (double)((long long)mygettimeofday());
 
@@ -101,6 +109,10 @@ int main(int argc, char** argv)
     {
         problemsize = (int)round(get_list_element(ii));
         IDL(INFO, printf("\nproblemsize: %d\n", problemsize));
+
+#ifdef VTRACE
+        VT_COUNT_UNSIGNED_VAL(id, (unsigned int)problemsize);
+#endif //VTRACE
 
         /* test all permutations */
         for (k = 0; k < NUM_FUNC; k++) {

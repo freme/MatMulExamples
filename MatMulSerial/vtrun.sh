@@ -1,0 +1,1 @@
+export OUTPUT=0; export PROBLEMLIST=100-801/100; export VT_CPUIDTRACE=yes; export VT_IOTRACE=yes; export VT_IOTRACE_EXTENDED=yes; export VT_MEMTRACE=yes; export VT_METRICS=PAPI_FP_OPS:PAPI_L2_TCM ; ./matmul

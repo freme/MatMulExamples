@@ -19,6 +19,8 @@ extern void multakij_( double *a, double *b, double *c, int *size );
 extern void multakji_( double *a, double *b, double *c, int *size );
 extern double getlanguage_( void );
 
+extern list_t *list; /**< parameterlist */
+extern int listsize; /**< parameterlistsize */
 extern double d_bi_start_sec; /**< start time */
 
 extern void sigint_handler (int signum);

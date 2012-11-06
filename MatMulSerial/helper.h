@@ -1,5 +1,5 @@
 #ifndef _HELPER_H__
-#define _HELPER_H__
+#define _HELPER_H__ 1
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -48,9 +48,9 @@ typedef struct list_t{
    }
 list_t;
 
-list_t *list; /**< parameterlist */
-int listsize; /**< parameterlistsize */
-double d_bi_start_sec; /**< start time */
+extern list_t *list; /**< parameterlist */
+extern int listsize; /**< parameterlistsize */
+extern double d_bi_start_sec; /**< start time */
 
 extern char* sec_getenv(const char *env, int exitOnNull );
 extern long int int_getenv(const char *env, int exitOnNull );

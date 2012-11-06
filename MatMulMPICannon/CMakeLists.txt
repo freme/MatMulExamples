@@ -21,7 +21,7 @@ ADD_DEFINITIONS("-g -DDEBUG=0 -Wall")
 
 SET(CMAKE_C_COMPILER vtcc)
 SET(CMAKE_C_FLAGS "-vt:cc mpicc")
-#SET(CMAKE_VERBOSE_MAKEFILE true)
+SET(CMAKE_VERBOSE_MAKEFILE true)
 
 target_link_libraries(${EXENAME} mpi) 
 

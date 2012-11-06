@@ -45,7 +45,7 @@ run:
 
 
 run2:
-	-export OUTPUT=0; export PROBLEMLIST=4-300/1; $P(RE) ./matmul
+	-export OUTPUT=0; export PROBLEMLIST=4-300/1; $(PRE) ./matmul
 
 clean:
 	rm -f $(OBJ) $(EXE) core *.z *.otf
