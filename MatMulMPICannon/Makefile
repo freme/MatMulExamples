@@ -2,7 +2,7 @@ MF=	Makefile
 
 CC=	$(PRE) mpicc
 
-CFLAGS=	-Os -DDEBUG=0 -Wall
+CFLAGS=	-O0 -DDEBUG=3 -g -Wall
 
 LFLAGS=	$(CFLAGS)
 

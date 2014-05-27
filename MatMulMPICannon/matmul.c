@@ -12,6 +12,10 @@
  #include <omp.h>
 #endif
 
+#ifdef VTRACE
+#include "vt_user.h"
+#endif
+
 #define NUM_FUNC 6
 //#define INVALID_MEASUREMENT -7.77E7
 
@@ -97,6 +101,12 @@ int main(int argc, char** argv)
     DT **pointer;
     GridPosition gridpos;
     int temprank, resultsender;
+#ifdef VTRACE
+    unsigned int id, gid;
+    gid = VT_COUNT_GROUP_DEF("MatMul");
+    id = VT_COUNT_DEF("MatrixSize", "#", VT_COUNT_TYPE_UNSIGNED, gid);
+#endif //VTRACE
+
 
     d_bi_start_sec = (double)((long long)mygettimeofday());
 
@@ -132,6 +142,10 @@ int main(int argc, char** argv)
     {
         problemsize = (int)round(get_list_element(ii));
         IDL(INFO, printf("\nproblemsize: %d\n", problemsize));
+#ifdef VTRACE
+        VT_COUNT_UNSIGNED_VAL(id, (unsigned int)problemsize);
+#endif //VTRACE
+
         mA = problemsize;
         nA = problemsize;
         mB = problemsize;
